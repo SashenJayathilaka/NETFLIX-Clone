@@ -4,6 +4,17 @@
     height: 448px;
 }
 
+.banner__image {
+    display: flex;
+    justify-content: center;
+}
+.banner__image > img {
+    object-fit: contain;
+    height: 448px;
+    position: absolute;
+    z-index: 0; 
+}
+
 .banner__contents {
     margin-left: 30px;
     padding-top: 140px;
@@ -14,6 +25,7 @@
     font-size: 3rem;
     font-weight: 800;
     padding-bottom: 0.3rem;
+    z-index: auto;
 }
 
 .banner__decription {
