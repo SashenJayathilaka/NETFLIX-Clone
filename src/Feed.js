@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import Banner from "./Banner";
 import Row from "./Row";
 import axios from "./axios";
+import LoadingScreen from "./LoadingScreen";
 
 const Feed = () => {
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   let Mysteries = [];
   let Documentaries = [];
@@ -16,6 +18,7 @@ const Feed = () => {
   let Fantasy = [];
 
   const getMovies = () => {
+    setIsLoading(false);
     try {
       async function fetchPosts() {
         const response = await axios.get("/v2/posts");
@@ -27,6 +30,8 @@ const Feed = () => {
     } catch (error) {
       console.log(error);
     }
+
+    setIsLoading(true);
   };
 
   useEffect(() => {
@@ -85,15 +90,25 @@ const Feed = () => {
   });
   return (
     <div>
-      <Banner Fantasy={Fantasy} />
-      <Row tittle="NETFLIX ORIGINALS" fetchUrl={Mysteries} isLargeRow={true} />
-      <Row tittle="Action Movies" fetchUrl={Thrillers} />
-      <Row tittle="Popular on Netflix" fetchUrl={Documentaries} />
-      <Row tittle="Top Rated" fetchUrl={US} />
-      <Row tittle="Horror Movies" fetchUrl={Horror} />
-      <Row tittle="The Stories Behind the Headlines" fetchUrl={Comedies} />
-      <Row tittle="Watch In One Weekend" fetchUrl={Period} />
-      <Row tittle="Released in the Past Year" fetchUrl={Fantasy} />
+      {isLoading ? (
+        <>
+          <Banner Fantasy={Fantasy} />
+          <Row
+            tittle="NETFLIX ORIGINALS"
+            fetchUrl={Mysteries}
+            isLargeRow={true}
+          />
+          <Row tittle="Action Movies" fetchUrl={Thrillers} />
+          <Row tittle="Popular on Netflix" fetchUrl={Documentaries} />
+          <Row tittle="Top Rated" fetchUrl={US} />
+          <Row tittle="Horror Movies" fetchUrl={Horror} />
+          <Row tittle="The Stories Behind the Headlines" fetchUrl={Comedies} />
+          <Row tittle="Watch In One Weekend" fetchUrl={Period} />
+          <Row tittle="Released in the Past Year" fetchUrl={Fantasy} />
+        </>
+      ) : (
+        <LoadingScreen />
+      )}
     </div>
   );
 };
