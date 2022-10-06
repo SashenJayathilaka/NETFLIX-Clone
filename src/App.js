@@ -1,26 +1,39 @@
-import React from 'react';
-import './App.css';
-import Banner from './Banner';
-import Nav from './Nav';
-import requests from './requests';
-import Row from './Row';
+import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import Details from "./Details";
+import Feed from "./Feed";
+import { auth } from "./firebase";
+import Footer from "./Footer";
+import Login from "./Login";
+import Nav from "./Nav";
 
 function App() {
+  const [user] = useAuthState(auth);
+  const [isUser, SetIsUser] = useState(false);
+
   return (
-    <div className="app">
-      <Nav />
-      <Banner />
-      <Row
-        tittle="NETFLIX ORIGINALS"
-        fetchUrl={requests.fetchNetflixOriginals}
-        isLargeRow={true} />
-      <Row tittle="NETFLIX TRENDING" fetchUrl={requests.fetchTrending} />
-      <Row tittle="TOP RATED" fetchUrl={requests.fetchTopRated} />
-      <Row tittle="ACTION MOVIES" fetchUrl={requests.fetchActionMovies} />
-      <Row tittle="COMEDY MOVIES" fetchUrl={requests.fetchComedyMovies} />
-      <Row tittle="HORROR MOVIES" fetchUrl={requests.fetchHorrorMovies} />
-      <Row tittle="ROMANTIC MOVIES" fetchUrl={requests.fetchRomanceMovies} />
-      <Row tittle="DOCUMENTARIES" fetchUrl={requests.fetchDocumentaries} />
+    <div>
+      {!user ? (
+        <Login />
+      ) : (
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <div className="app">
+                <Nav />
+                <Feed />
+                <Footer />
+              </div>
+            </Route>
+            <Route path="/detail/:id">
+              <Nav />
+              <Details />
+            </Route>
+          </Switch>
+        </Router>
+      )}
     </div>
   );
 }
