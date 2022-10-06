@@ -1,5 +1,5 @@
 # NETFLIX Clone with REACT
-### <a href="https://netflix-clone-3f0d9.firebaseapp.com/" target="_blank">🔴 LIVE DEMO</a>
+### <a href="https://strong-rugelach-a90f6d.netlify.app" target="_blank">🔴 LIVE DEMO</a>
 
 #### PREREQUISITES:
 - Sign up for a Firebase account <a href='https://firebase.google.com'>HERE</a>
@@ -79,4 +79,4 @@ npm run build
 firebase deploy
 ```
 
-<a href="https://netflix-clone-3f0d9.firebaseapp.com/" target="_blank">![image](https://user-images.githubusercontent.com/99184393/177320310-8b098e8e-8b92-4a9e-bf5a-1aa85faa1f91.png)</a>
+<a href="https://strong-rugelach-a90f6d.netlify.app" target="_blank">![image](https://user-images.githubusercontent.com/99184393/177320310-8b098e8e-8b92-4a9e-bf5a-1aa85faa1f91.png)</a>
