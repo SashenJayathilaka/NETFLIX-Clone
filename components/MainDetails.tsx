@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
+import { Details } from "../typings";
 
 import BannerDetailsSkeleton from "./skeleton/BannerDetailsSkeleton";
 import BannerSkeleton from "./skeleton/BannerSkeleton";
@@ -8,7 +9,7 @@ import BannerSkeleton from "./skeleton/BannerSkeleton";
 const baseUrl = "https://image.tmdb.org/t/p/original";
 
 type Props = {
-  movieDetails: any;
+  movieDetails: Details | undefined;
 };
 
 function MainDetails({ movieDetails }: Props) {
@@ -54,7 +55,7 @@ function MainDetails({ movieDetails }: Props) {
               movieDetails?.name ||
               movieDetails?.original_name}
           </h1>
-          <p className="text-sm font-semibold">
+          <p className="text-sm font-semibold py-6">
             Release Date: {movieDetails.release_date}
           </p>
           <p className="max-w-xs text-shadow-md text-xs md:max-w-lg md:text-lg lg:max-w-2xl">

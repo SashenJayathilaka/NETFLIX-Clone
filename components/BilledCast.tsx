@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React, { useRef, useState } from "react";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
+import { Cast } from "../typings";
 
 import BilledCastSceleton from "./skeleton/BilledCastSceleton";
 
@@ -46,7 +47,7 @@ function BilledCast({ movieCast }: Props) {
         >
           {movieCast?.cast ? (
             <>
-              {movieCast?.cast?.map((cast: any) => (
+              {movieCast?.cast?.map((cast: Cast) => (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -61,6 +62,7 @@ function BilledCast({ movieCast }: Props) {
                   <img
                     src={`${baseUrl}${cast.profile_path}`}
                     className="w-36"
+                    alt=""
                   />
                   <h1 className="text-gray-300 font-bold">
                     {cast.name || cast.original_name}
