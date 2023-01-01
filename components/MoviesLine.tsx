@@ -16,7 +16,7 @@ function MoviesLine({ movie, isDetails }: Props) {
   const handleChangePage = () => {
     router.push({
       pathname: isDetails
-        ? `http://localhost:3000/details/${movie.id}`
+        ? `${process.env.VERCEL_URL}/details/${movie.id}`
         : `details/${movie.id}`,
       query: {
         movieId: movie.id.toString(),
