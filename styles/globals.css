@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#141414] text-white !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-red-600;
+  }
+}
+
+@layer components {
+  .header {
+    @apply fixed top-0 z-50 flex w-full items-center justify-between px-4 py-4 transition-all lg:px-10 lg:py-6  text-white;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1.2fr));
+  align-items: center;
+  font-size: 62.5%;
+  font-family: sans-serif;
+  color: white;
+}
+
+.text-info {
+  margin: 16px;
+}
+
+.text-info h1 {
+  font-size: 5em;
+  margin-bottom: 10px;
+}
+
+.text-info p {
+  font-size: 2em;
+  font-weight: 400;
+}
+
+.section-dowload {
+  padding: 70px 45px;
+}
+
+.section-dowload .grid > div:first-child {
+  order: 2;
+}
+
+.section-dowload {
+  order: 1;
+}
+
+.section-dowload img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+.section-dowload h2 {
+  font-size: 1.625rem;
+  font-weight: 400;
+}
+.cardanimation {
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+  background: #000;
+  z-index: 1;
+  display: flex;
+  /* align-items: center; */
+  width: 60%;
+  min-width: 15rem;
+  padding: 7px 11px;
+  border: solid 2px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 2em 0 #000;
+  border-radius: 0.75rem;
+  align-items: center;
+}
+
+.cardanimation-img {
+  width: 53px;
+  height: 83px;
+  margin-right: 16px;
+}
+
+.cardanimation-text h2 {
+  margin: 4.8px 0;
+  font-size: 1.5em;
+  color: #fff;
+  font-weight: 600;
+}
+
+.cardanimation-text p {
+  color: #0071eb;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.animation-icon {
+  width: 4em;
+  height: 3em;
+  outline: 2px solid #000;
+  outline-offset: -2px;
+  display: block;
+  background: url(https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif)
+    center center no-repeat;
+  background-size: 100%;
+  content: "";
+  flex-grow: 0;
+  flex-shrink: 0;
+}

@@ -1,82 +1,36 @@
-# NETFLIX Clone with REACT
-### <a href="https://magnificent-dango-455ca6.netlify.app" target="_blank">🔴 LIVE DEMO</a>
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-#### PREREQUISITES:
-- Sign up for a Firebase account <a href='https://firebase.google.com'>HERE</a>
-- Install Node JS in your computer <a href='https://nodejs.org/en/'>HERE</a>
+## Getting Started
 
-## Available Scripts
+First, run the development server:
 
-```
-npx create-react-app netflix_clone
-```
-
-In the project directory, you can run:
-```
-npm start
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-```
-npm test
-```
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-```
-npm run build
-```
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-```
-npm run eject
-```
+## Learn More
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To learn more about Next.js, take a look at the following resources:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Deploy on Vercel
 
-```
-npm i axios
-```
-```
-npm install react-youtube
-```
-```
-npm install movie-trailer
-```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Firebase <a href='https://firebase.google.com'>HERE</a>
-```
-npm install firebase
-```
-```
-npm install -g firebase-tools
-```
-find info <a href='https://dev.to/farazamiruddin/react-firebase-add-firebase-to-a-react-app-4nc9'>HERE</a>
-
-```
-firebase init hosting
-```
-```
-npm run build
-```
-```
-firebase deploy
-```
-
-<a href="https://magnificent-dango-455ca6.netlify.app" target="_blank">![image](https://user-images.githubusercontent.com/99184393/177320310-8b098e8e-8b92-4a9e-bf5a-1aa85faa1f91.png)</a>
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
