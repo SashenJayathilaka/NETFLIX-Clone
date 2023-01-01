@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import React from "react";
 
+import { Companies, Details, Genre, Languages } from "../typings";
+
 import BannerDetailsSkeleton from "./skeleton/BannerDetailsSkeleton";
 
 const baseUrl = "https://image.tmdb.org/t/p/original";
 
 type Props = {
-  movieDetails: any;
+  movieDetails: Details | undefined;
 };
 
 function MoreDetails({ movieDetails }: Props) {
@@ -26,8 +28,8 @@ function MoreDetails({ movieDetails }: Props) {
             <p className="text-lg text-gray-500">Genres</p>
           </div>
           <div className="flex justify-start gap-10 px-3 py-3 items-center text-center">
-            {movieDetails?.genres?.map((genres: any, index: number) => (
-              <p>{genres.name}</p>
+            {movieDetails?.genres?.map((genres: Genre, index: number) => (
+              <p key={index}>{genres.name}</p>
             ))}
           </div>
           <div className="px-3 py-3">
@@ -35,8 +37,8 @@ function MoreDetails({ movieDetails }: Props) {
           </div>
           <div className="flex justify-start gap-10 px-3 py-3 items-center text-center">
             {movieDetails?.spoken_languages?.map(
-              (language: any, index: number) => (
-                <p>
+              (language: Languages, index: number) => (
+                <p key={index}>
                   {index + 1}: {language.english_name}
                 </p>
               )
@@ -46,7 +48,7 @@ function MoreDetails({ movieDetails }: Props) {
             <p className="text-lg text-gray-500">production companies</p>
           </div>
           <div className="flex justify-start gap-10 px-3 py-3 items-center text-center">
-            {movieDetails?.production_companies?.map((companies: any) => (
+            {movieDetails?.production_companies?.map((companies: Companies) => (
               <div key={companies.id} className="shadow-lg">
                 <img
                   src={`${baseUrl}${companies.logo_path}`}
