@@ -6,7 +6,7 @@ function BannerDetailsSkeleton({}: Props) {
   return (
     <div
       role="status"
-      className="animate-pulse space-y-4 max-w-3xl overflow-y-hidden pt-24"
+      className="animate-pulse space-y-4 max-w-3xl overflow-hidden pt-24"
     >
       <div className="mb-12 w-screen">
         <div className="h-8 bg-gray-200 rounded-full dark:bg-gray-700 w-[300px] mb-4"></div>

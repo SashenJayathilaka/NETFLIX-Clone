@@ -30,7 +30,7 @@ function PersonFeed({}: Props) {
   }, [castId, castData]);
 
   return (
-    <main className="relative pl-4 pb-24 lg:space-y-24">
+    <main className="relative pl-4 pb-24 lg:space-y-24 overflow-x-hidden">
       <PersonBanner castPerson={castPerson} />
       <KnownFor castData={castData} />
     </main>
