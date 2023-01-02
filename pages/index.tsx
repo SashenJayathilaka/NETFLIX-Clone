@@ -54,21 +54,48 @@ export default function Home({
       <main className="relative pl-4 pb-24 lg:space-y-24">
         <HomeBanner netflixOriginals={netflixOriginals} />
         <section className="md:space-y-16">
-          <Row title="Trending Now" movies={trendingNow} isDetails={false} />
-          <Row title="Top Rated" movies={topRated} isDetails={false} />
+          <Row
+            title="Trending Now"
+            movies={trendingNow}
+            isDetails={false}
+            type="movie"
+          />
+          <Row
+            title="Top Rated"
+            movies={topRated}
+            isDetails={false}
+            type="movie"
+          />
           <Row
             title="Action Thrillers"
             movies={actionMovies}
             isDetails={false}
+            type="movie"
           />
-          <Row title="Comedies" movies={comedyMovies} isDetails={false} />
-          <Row title="Scary Movies" movies={horrorMovies} isDetails={false} />
+          <Row
+            title="Comedies"
+            movies={comedyMovies}
+            isDetails={false}
+            type="movie"
+          />
+          <Row
+            title="Scary Movies"
+            movies={horrorMovies}
+            isDetails={false}
+            type="movie"
+          />
           <Row
             title="Romance Movies"
             movies={romanceMovies}
             isDetails={false}
+            type="movie"
           />
-          <Row title="Documentaries" movies={documentaries} isDetails={false} />
+          <Row
+            title="Documentaries"
+            movies={documentaries}
+            isDetails={false}
+            type="movie"
+          />
         </section>
       </main>
       <Footer />

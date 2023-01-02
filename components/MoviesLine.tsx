@@ -8,9 +8,10 @@ import { motion } from "framer-motion";
 type Props = {
   movie: Movie;
   isDetails: Boolean;
+  type: string;
 };
 
-function MoviesLine({ movie, isDetails }: Props) {
+function MoviesLine({ movie, isDetails, type }: Props) {
   const router = useRouter();
 
   const handleChangePage = () => {
@@ -20,6 +21,9 @@ function MoviesLine({ movie, isDetails }: Props) {
         : `details/${movie.id}`,
       query: {
         movieId: movie.id.toString(),
+        type: movie.media_type?.toString()
+          ? movie.media_type?.toString()
+          : type.toString(),
       },
     });
   };
