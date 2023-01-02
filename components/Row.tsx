@@ -10,9 +10,10 @@ type Props = {
   movies: Movie[];
   title: string;
   isDetails: Boolean;
+  type: string;
 };
 
-function Row({ movies, title, isDetails }: Props) {
+function Row({ movies, title, isDetails, type }: Props) {
   const rowRef = useRef<HTMLDivElement>(null);
   const [isMoved, setIsMoved] = useState(false);
 
@@ -53,7 +54,12 @@ function Row({ movies, title, isDetails }: Props) {
           className="flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2"
         >
           {movies.map((movie) => (
-            <MoviesLine key={movie.id} movie={movie} isDetails={isDetails} />
+            <MoviesLine
+              key={movie.id}
+              movie={movie}
+              isDetails={isDetails}
+              type={type}
+            />
           ))}
         </div>
         <BiChevronRightCircle

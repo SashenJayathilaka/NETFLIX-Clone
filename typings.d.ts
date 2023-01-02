@@ -62,6 +62,35 @@ export interface Cast {
   character: string;
 }
 
+export interface CastPerson {
+  id: number;
+  profile_path: string;
+  name: string;
+  known_for_department: string;
+  biography: string;
+  place_of_birth: string;
+  birthday: string;
+  gender: number;
+  popularity: number;
+  also_known_as: string[];
+}
+
+export interface PopularTyping {
+  adult: boolean;
+  gender: number;
+  id: number;
+  name: string;
+  popularity: number;
+  profile_path: string;
+  known_for_department: string;
+}
+
+export interface CastDataTyping {
+  id: number;
+  poster_path: string;
+  title: string;
+}
+
 export interface Element {
   type:
     | "Bloopers"

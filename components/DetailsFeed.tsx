@@ -17,22 +17,22 @@ type Props = {
 
 function DetailsFeed({ netflixOriginals }: Props) {
   const router = useRouter();
-  const { movieId } = router.query;
+  const { movieId, type } = router.query;
   const [movieTrailer, setMovieTrailer] = useState([]);
   const [movieCast, setMovieCast] = useState([]);
   const [movieDetails, setMovieDetails] = useState();
 
-  const fetchData = async (id: any) => {
+  const fetchData = async (id: any, type: any) => {
     const movieVideo = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`
     ).then((res) => res.json());
 
     const movieCast = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`
     ).then((res) => res.json());
 
     const movieDetails = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/${type}/${id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`
     ).then((res) => res.json());
 
     setMovieTrailer(movieVideo);
@@ -41,8 +41,8 @@ function DetailsFeed({ netflixOriginals }: Props) {
   };
 
   useEffect(() => {
-    fetchData(movieId);
-  }, [movieId]);
+    fetchData(movieId, type);
+  }, [movieId, type]);
 
   return (
     <div>
@@ -59,6 +59,7 @@ function DetailsFeed({ netflixOriginals }: Props) {
               title="More Like This"
               movies={netflixOriginals}
               isDetails={true}
+              type="movie"
             />
           </div>
         </main>

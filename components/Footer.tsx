@@ -53,11 +53,7 @@ function Footer({}: Props) {
           </li>
         </ul>
         <button className="flex justify-center items-center font-medium h-12 w-36 border border-[#737373]">
-          <img
-            className="w-4 m-3  "
-            src="https://drive.google.com/uc?export=download&id=1XZOSXtzEIp_7qhCN3vVnFEXroUaR-qfr"
-            alt="globe"
-          />
+          <img className="w-4 m-3  " src="./assets/globe (1).png" alt="globe" />
           English
           <img
             className="w-3 m-2 pt-0.5"

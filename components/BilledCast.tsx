@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
-import { Cast } from "../typings";
 
+import { Cast } from "../typings";
+import Person from "./Person";
 import BilledCastSceleton from "./skeleton/BilledCastSceleton";
 
 const baseUrl = "https://image.tmdb.org/t/p/original";
@@ -48,27 +48,7 @@ function BilledCast({ movieCast }: Props) {
           {movieCast?.cast ? (
             <>
               {movieCast?.cast?.map((cast: Cast) => (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 0.8,
-                    delay: 0.5,
-                    ease: [0, 0.71, 0.2, 1.01],
-                  }}
-                  key={cast.id}
-                  className="bg-gray-900 relative h-auto min-w-[180px] cursor-pointer transition-transform duration-200 items-center ease-out md:h-[310px] md:min-w-[150px] px-2 py-2 md:hover:scale-105 rounded-md shadow-lg"
-                >
-                  <img
-                    src={`${baseUrl}${cast.profile_path}`}
-                    className="w-36"
-                    alt=""
-                  />
-                  <h1 className="text-gray-300 font-bold">
-                    {cast.name || cast.original_name}
-                  </h1>
-                  <p className="text-gray-300">{cast.character}</p>
-                </motion.div>
+                <Person key={cast.id} cast={cast} baseUrl={baseUrl} />
               ))}
             </>
           ) : (
