@@ -11,7 +11,7 @@ type Props = {
 
 function PeoplePopular({ popular }: Props) {
   return (
-    <div className="pt-36">
+    <div className="pt-36 overflow-x-hidden">
       <p className="text-4xl font-medium text-gray-400">Pupular</p>
       <div className="grid space-x-5 space-y-8 pt-8">
         {popular?.map((person) => (
