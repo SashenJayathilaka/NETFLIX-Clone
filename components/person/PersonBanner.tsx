@@ -9,7 +9,7 @@ type Props = {
 
 function PersonBanner({ castPerson }: Props) {
   return (
-    <div className="">
+    <div className="overflow-x-hidden">
       <div className="inline-block md:flex justify-start gap-16 px-8 pl-16 pt-36 text-white">
         <div className="items-center px-2.5 py-2.5">
           {castPerson.profile_path ? (
@@ -83,7 +83,7 @@ function PersonBanner({ castPerson }: Props) {
           ) : (
             <div
               role="status"
-              className="animate-pulse space-y-4 max-w-3xl overflow-y-hidden"
+              className="animate-pulse space-y-4 max-w-3xl overflow-hidden"
             >
               <div className="mb-12 w-screen">
                 <div className="h-8 bg-gray-200 rounded-full dark:bg-gray-700 w-[300px] mb-4"></div>
