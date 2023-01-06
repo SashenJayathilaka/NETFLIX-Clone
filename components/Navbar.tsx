@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 import { AiFillBell, AiOutlineSearch } from "react-icons/ai";
 import { RiNetflixFill } from "react-icons/ri";
+import Search from "./Search";
 
-type Props = {};
+type Props = {
+  isSearch?: boolean;
+  setSearchTerm?: any;
+  searchThrem?: string;
+};
 
-function Navbar({}: Props) {
+function Navbar({ isSearch, setSearchTerm, searchThrem }: Props) {
   const [isScrolled, setIsScrolled] = useState(false);
   const { data: session } = useSession();
   const router = useRouter();
@@ -74,7 +79,11 @@ function Navbar({}: Props) {
       </div>
 
       <div className="font-light flex items-center space-x-4 text-sm">
-        <AiOutlineSearch className="hidden sm:inline sm:w-6 sm:h-6 cursor-not-allowed" />
+        {isSearch ? (
+          <Search searchThrem={searchThrem!} setSearchTerm={setSearchTerm} />
+        ) : (
+          <AiOutlineSearch className="hidden sm:inline sm:w-6 sm:h-6 cursor-not-allowed" />
+        )}
         <AiFillBell className="h-6 w-6 cursor-not-allowed" />
         <RiNetflixFill className="h-6 w-6 cursor-not-allowed text-red-800" />
         <div onClick={() => signOut()} className="cursor-pointer">

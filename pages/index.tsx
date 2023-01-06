@@ -2,10 +2,7 @@ import { motion } from "framer-motion";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 
-import Footer from "../components/Footer";
-import HomeBanner from "../components/HomeBanner";
-import Navbar from "../components/Navbar";
-import Row from "../components/Row";
+import MainPage from "../components/MainPage";
 import SignIn from "../components/SignIn";
 import { Movie } from "../typings";
 import requests from "../utils/requests";
@@ -50,55 +47,17 @@ export default function Home({
           href="https://www.designbust.com/download/1037/png/netflix_logo_png_transparet512.png"
         />
       </Head>
-      <Navbar />
-      <main className="relative pl-4 pb-24 lg:space-y-24">
-        <HomeBanner netflixOriginals={netflixOriginals} />
-        <section className="md:space-y-16">
-          <Row
-            title="Trending Now"
-            movies={trendingNow}
-            isDetails={false}
-            type="movie"
-          />
-          <Row
-            title="Top Rated"
-            movies={topRated}
-            isDetails={false}
-            type="movie"
-          />
-          <Row
-            title="Action Thrillers"
-            movies={actionMovies}
-            isDetails={false}
-            type="movie"
-          />
-          <Row
-            title="Comedies"
-            movies={comedyMovies}
-            isDetails={false}
-            type="movie"
-          />
-          <Row
-            title="Scary Movies"
-            movies={horrorMovies}
-            isDetails={false}
-            type="movie"
-          />
-          <Row
-            title="Romance Movies"
-            movies={romanceMovies}
-            isDetails={false}
-            type="movie"
-          />
-          <Row
-            title="Documentaries"
-            movies={documentaries}
-            isDetails={false}
-            type="movie"
-          />
-        </section>
-      </main>
-      <Footer />
+      <MainPage
+        netflixOriginals={netflixOriginals}
+        trendingNow={trendingNow}
+        topRated={topRated}
+        actionMovies={actionMovies}
+        comedyMovies={comedyMovies}
+        horrorMovies={horrorMovies}
+        romanceMovies={romanceMovies}
+        documentaries={documentaries}
+        session={session}
+      />
     </motion.div>
   );
 }

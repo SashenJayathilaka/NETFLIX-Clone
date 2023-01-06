@@ -8,7 +8,6 @@
 NETFLIX 2.0 with NEXT.JS!(Next.js, NextAuth.js v4.17.0, Tailwind CSS, framer-motion, TMDB Api, Google Authentication, primary information about a movies)
   </p>
 
-
 <!-- Badges -->
 
 <a href="https://netflix-sclone.vercel.app" target="_blank">![](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)</a>
@@ -243,6 +242,7 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 ### Learn More
+
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 <!-- Deployment -->
@@ -252,6 +252,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 To deploy this project run
 
 ##### Deploy on Vercel
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.

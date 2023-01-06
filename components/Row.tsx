@@ -1,4 +1,3 @@
-import { title } from "process";
 import React, { useRef, useState } from "react";
 
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
@@ -8,12 +7,13 @@ import MoviesLine from "./MoviesLine";
 
 type Props = {
   movies: Movie[];
-  title: string;
-  isDetails: Boolean;
+  title?: string;
+  isDetails: boolean;
   type: string;
+  isSearch?: boolean;
 };
 
-function Row({ movies, title, isDetails, type }: Props) {
+function Row({ movies, title, isDetails, type, isSearch }: Props) {
   const rowRef = useRef<HTMLDivElement>(null);
   const [isMoved, setIsMoved] = useState(false);
 
@@ -32,7 +32,7 @@ function Row({ movies, title, isDetails, type }: Props) {
   };
 
   return (
-    <div className="h-40 space-y-0.5 md:space-y-2">
+    <div className="h-40 space-y-0.5 md:space-y-2 px-4">
       <h2
         className={
           isDetails
@@ -43,15 +43,22 @@ function Row({ movies, title, isDetails, type }: Props) {
         {title}
       </h2>
       <div className="group relative md:-ml-2">
-        <BiChevronLeftCircle
-          className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 ${
-            !isMoved && "hidden"
-          }`}
-          onClick={() => handleClick("left")}
-        />
+        {!isSearch && (
+          <BiChevronLeftCircle
+            className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 ${
+              !isMoved && "hidden"
+            }`}
+            onClick={() => handleClick("left")}
+          />
+        )}
+
         <div
           ref={rowRef}
-          className="flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2"
+          className={
+            isSearch
+              ? `grid  overflow-x-hidden gap-y-6 gap-x-24`
+              : `flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2`
+          }
         >
           {movies.map((movie) => (
             <MoviesLine
@@ -62,10 +69,12 @@ function Row({ movies, title, isDetails, type }: Props) {
             />
           ))}
         </div>
-        <BiChevronRightCircle
-          className="absolute top-0 bottom-0 right-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100"
-          onClick={() => handleClick("right")}
-        />
+        {!isSearch && (
+          <BiChevronRightCircle
+            className="absolute top-0 bottom-0 right-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100"
+            onClick={() => handleClick("right")}
+          />
+        )}
       </div>
     </div>
   );
