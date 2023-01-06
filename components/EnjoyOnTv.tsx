@@ -30,7 +30,7 @@ function EnjoyOnTv({}: Props) {
             className="w-[280px] md:w-[465px] sm:w-[450px] lg:w-[350px] z-0"
           >
             <source
-              src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
+              src="https://drive.google.com/uc?export=download&id=1i_6u8bQQGXc5yHgFTgz5xeobJcHQUmR"
               type="video/mp4"
             />
           </video>

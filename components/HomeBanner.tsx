@@ -1,18 +1,53 @@
-import React, { useEffect, useState } from "react";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import Image from "next/image";
-
-import { Movie } from "../typings";
+import React, { useEffect, useState } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { IoMdInformationCircleOutline } from "react-icons/io";
+
+import { firestore } from "../firebase/firebase";
+import { Movie } from "../typings";
 
 const baseUrl = "https://image.tmdb.org/t/p/original";
 
 type Props = {
   netflixOriginals: Movie[];
+  session?: any;
 };
 
-function HomeBanner({ netflixOriginals }: Props) {
+function HomeBanner({ netflixOriginals, session }: Props) {
   const [movie, setMovie] = useState<Movie | null>(null);
+  const [userCreates, setUserCreate] = useState<boolean>(false);
+
+  const getUserData = async () => {
+    if (session) {
+      try {
+        const docRef = doc(firestore, "netflixUsers", session?.user?.uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          console.log("User Already Created");
+          setUserCreate(false);
+        } else {
+          setUserCreate(true);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    } else return;
+  };
+
+  const userCreate = async (session: any) => {
+    const userDocRef = doc(firestore, "netflixUsers", session?.user?.uid);
+    await setDoc(userDocRef, JSON.parse(JSON.stringify(session)));
+  };
+
+  useEffect(() => {
+    getUserData();
+
+    if (userCreates) {
+      userCreate(session);
+    } else return;
+  }, [session, firestore, userCreates]);
 
   useEffect(() => {
     setMovie(
