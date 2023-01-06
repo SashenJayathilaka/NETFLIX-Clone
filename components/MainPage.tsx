@@ -64,12 +64,12 @@ function MainPage({
               isSearch={true}
             />
           </section>
+          {/*           <br />
           <br />
           <br />
           <br />
           <br />
-          <br />
-          <Footer />
+          <Footer /> */}
         </main>
       ) : (
         <>
