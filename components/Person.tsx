@@ -15,7 +15,7 @@ function Person({ cast, baseUrl }: Props) {
 
   const handleNavigatePage = () => {
     router.push({
-      pathname: `https://netflix-sclone.vercel.app/cast/${cast.id}`,
+      pathname: `https://netflix-sclone.netlify.app/cast/${cast.id}`,
       query: {
         castId: cast.id.toString(),
       },

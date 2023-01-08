@@ -72,6 +72,12 @@ function Navbar({ isSearch, setSearchTerm, searchThrem }: Props) {
           >
             People
           </li>
+          <li
+            className="cursor-pointer text-[16px] hover:underline font-light text-[#e5e5e5] transition duration-[.4s] hover:text-[#b3b3b3]"
+            onClick={() => router.push("/favourite")}
+          >
+            Favourite
+          </li>
           <li className="cursor-pointer text-[16px] hover:underline font-light text-[#e5e5e5] transition duration-[.4s] hover:text-[#b3b3b3]">
             New &amp; Popular
           </li>

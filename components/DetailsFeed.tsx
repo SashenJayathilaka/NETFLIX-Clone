@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import { Movie } from "../typings";
+import AddBookmark from "./AddBookmark";
 import BilledCast from "./BilledCast";
 import Companies from "./Companies";
 import Footer from "./Footer";
@@ -46,25 +47,24 @@ function DetailsFeed({ netflixOriginals }: Props) {
 
   return (
     <div>
-      <>
-        <Navbar />
-        <main className="relative pl-4 pb-24 lg:space-y-24">
-          <MainDetails movieDetails={movieDetails} />
-          <Companies movieDetails={movieDetails} />
-          <Trailer movieTrailer={movieTrailer} movieDetails={movieDetails} />
-          <BilledCast movieCast={movieCast} />
-          <MoreDetails movieDetails={movieDetails} />
-          <div className="pb-8">
-            <Row
-              title="More Like This"
-              movies={netflixOriginals}
-              isDetails={true}
-              type="movie"
-            />
-          </div>
-        </main>
-        <Footer />
-      </>
+      <Navbar />
+      <main className="relative pl-4 pb-24 lg:space-y-24">
+        <MainDetails movieDetails={movieDetails} />
+        <Companies movieDetails={movieDetails} />
+        {movieDetails && <AddBookmark movieDetails={movieDetails} />}
+        <Trailer movieTrailer={movieTrailer} movieDetails={movieDetails} />
+        <BilledCast movieCast={movieCast} />
+        <MoreDetails movieDetails={movieDetails} />
+        <div className="pb-8">
+          <Row
+            title="More Like This"
+            movies={netflixOriginals}
+            isDetails={true}
+            type="movie"
+          />
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 }

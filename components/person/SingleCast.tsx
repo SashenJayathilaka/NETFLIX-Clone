@@ -15,7 +15,7 @@ function SingleCast({ crewData, baseUrl }: Props) {
 
   const handleChangePage = () => {
     router.push({
-      pathname: `https://netflix-sclone.vercel.app/details/${crewData.id}`,
+      pathname: `https://netflix-sclone.netlify.app/details/${crewData.id}`,
 
       query: {
         movieId: crewData.id.toString(),

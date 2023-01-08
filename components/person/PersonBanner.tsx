@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+
+import PersonBookMark from "../PersonBookMark";
 import NoCast from "../skeleton/NoCast";
 
 const baseUrl = "https://image.tmdb.org/t/p/original";
@@ -104,6 +106,7 @@ function PersonBanner({ castPerson }: Props) {
           )}
         </div>
       </div>
+      {castPerson.id && <PersonBookMark castPerson={castPerson} />}
     </div>
   );
 }

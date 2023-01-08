@@ -1,26 +1,25 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import React from "react";
-
-import { PopularTyping } from "../../typings";
+import { PopularTyping } from "../typings";
 
 type Props = {
   person: PopularTyping;
   baseUrl: string;
 };
 
-function PersonMaping({ person, baseUrl }: Props) {
+function LikeActress({ person, baseUrl }: Props) {
   const router = useRouter();
 
   const handleNavigatePage = () => {
     router.push({
       pathname: `https://netflix-sclone.netlify.app/cast/${person.id}`,
+
       query: {
         castId: person.id.toString(),
       },
     });
   };
-
   return (
     <motion.div
       className="bg-transparent relative cursor-pointer transition-transform duration-200 items-center ease-out  px-2 py-2 md:hover:scale-105 rounded-md shadow-2xl"
@@ -29,8 +28,8 @@ function PersonMaping({ person, baseUrl }: Props) {
       viewport={{ once: true }}
       onClick={handleNavigatePage}
     >
-      <img src={`${baseUrl}${person.profile_path}`} alt="" className="w-56" />
-      <h1 className="text-gray-300 font-bold text-xl text-center py-2 line-clamp-3">
+      <img src={`${baseUrl}${person.profile_path}`} alt="" className="w-48" />
+      <h1 className="text-gray-300 font-bold text-lg text-center py-2 line-clamp-3">
         {person.name}
       </h1>
       <div className="text-white px-2.5 py-2.5 text-sm flex justify-between">
@@ -41,4 +40,4 @@ function PersonMaping({ person, baseUrl }: Props) {
   );
 }
 
-export default PersonMaping;
+export default LikeActress;

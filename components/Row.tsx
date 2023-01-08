@@ -6,14 +6,24 @@ import { Movie } from "../typings";
 import MoviesLine from "./MoviesLine";
 
 type Props = {
-  movies: Movie[];
+  movies?: Movie[];
   title?: string;
   isDetails: boolean;
   type: string;
   isSearch?: boolean;
+  isfavourite?: boolean;
+  likeMovies?: any;
 };
 
-function Row({ movies, title, isDetails, type, isSearch }: Props) {
+function Row({
+  movies,
+  title,
+  isDetails,
+  type,
+  isSearch,
+  isfavourite,
+  likeMovies,
+}: Props) {
   const rowRef = useRef<HTMLDivElement>(null);
   const [isMoved, setIsMoved] = useState(false);
 
@@ -52,23 +62,45 @@ function Row({ movies, title, isDetails, type, isSearch }: Props) {
           />
         )}
 
-        <div
-          ref={rowRef}
-          className={
-            isSearch
-              ? `grid  overflow-x-hidden gap-y-6 gap-x-24`
-              : `flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2`
-          }
-        >
-          {movies.map((movie) => (
-            <MoviesLine
-              key={movie.id}
-              movie={movie}
-              isDetails={isDetails}
-              type={type}
-            />
-          ))}
-        </div>
+        {isfavourite ? (
+          <div
+            ref={rowRef}
+            className={
+              likeMovies?.length >= 4
+                ? `grid overflow-x-hidden gap-y-6 gap-x-24`
+                : `flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2`
+            }
+          >
+            {likeMovies!.map((movie: any) => (
+              <MoviesLine
+                key={movie.id}
+                movie={movie.data()}
+                isDetails={isDetails}
+                type={type}
+                isfavourite={isfavourite}
+              />
+            ))}
+          </div>
+        ) : (
+          <div
+            ref={rowRef}
+            className={
+              isSearch
+                ? `grid  overflow-x-hidden gap-y-6 gap-x-24`
+                : `flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2`
+            }
+          >
+            {movies!.map((movie) => (
+              <MoviesLine
+                key={movie.id}
+                movie={movie}
+                isDetails={isDetails}
+                type={type}
+              />
+            ))}
+          </div>
+        )}
+
         {!isSearch && (
           <BiChevronRightCircle
             className="absolute top-0 bottom-0 right-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100"
