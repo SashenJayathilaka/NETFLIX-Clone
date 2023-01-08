@@ -9,23 +9,36 @@ type Props = {
   movie: Movie;
   isDetails: Boolean;
   type: string;
+  isfavourite?: boolean;
 };
 
-function MoviesLine({ movie, isDetails, type }: Props) {
+function MoviesLine({ movie, isDetails, type, isfavourite }: Props) {
   const router = useRouter();
 
   const handleChangePage = () => {
-    router.push({
-      pathname: isDetails
-        ? `https://netflix-sclone.vercel.app/details/${movie.id}`
-        : `details/${movie.id}`,
-      query: {
-        movieId: movie.id.toString(),
-        type: movie.media_type?.toString()
-          ? movie.media_type?.toString()
-          : type.toString(),
-      },
-    });
+    if (isfavourite) {
+      router.push({
+        pathname: isDetails
+          ? `https://netflix-sclone.netlify.app/details/${movie.id}`
+          : `details/${movie.id}`,
+        query: {
+          movieId: movie.id.toString(),
+          type: movie?.title ? "movie" : "tv",
+        },
+      });
+    } else {
+      router.push({
+        pathname: isDetails
+          ? `https://netflix-sclone.netlify.app/details/${movie.id}`
+          : `details/${movie.id}`,
+        query: {
+          movieId: movie.id.toString(),
+          type: movie.media_type?.toString()
+            ? movie.media_type?.toString()
+            : type.toString(),
+        },
+      });
+    }
   };
 
   return (

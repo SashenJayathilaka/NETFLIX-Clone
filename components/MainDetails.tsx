@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
-import { Details } from "../typings";
 
+import { Details } from "../typings";
 import BannerDetailsSkeleton from "./skeleton/BannerDetailsSkeleton";
 import BannerSkeleton from "./skeleton/BannerSkeleton";
 
@@ -58,7 +58,7 @@ function MainDetails({ movieDetails }: Props) {
           <p className="text-sm font-semibold py-6">
             Release Date: {movieDetails.release_date}
           </p>
-          <p className="max-w-xs text-shadow-md text-xs md:max-w-lg md:text-lg lg:max-w-2xl">
+          <p className="max-w-xs text-shadow-md text-xs md:max-w-lg md:text-lg lg:max-w-2xl line-clamp-6">
             {movieDetails?.overview}
           </p>
         </motion.div>
