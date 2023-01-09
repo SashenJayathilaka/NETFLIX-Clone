@@ -42,7 +42,13 @@ function Row({
   };
 
   return (
-    <div className="h-40 space-y-0.5 md:space-y-2 px-4">
+    <div
+      className={
+        isfavourite || isSearch
+          ? `h-auto space-y-0.5 md:space-y-2 px-4`
+          : `h-40 space-y-0.5 md:space-y-2 px-4`
+      }
+    >
       <h2
         className={
           isDetails
@@ -85,12 +91,12 @@ function Row({
           <div
             ref={rowRef}
             className={
-              isSearch
+              isSearch && movies!.length >= 4
                 ? `grid  overflow-x-hidden gap-y-6 gap-x-24`
                 : `flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2`
             }
           >
-            {movies!.map((movie) => (
+            {movies?.map((movie) => (
               <MoviesLine
                 key={movie.id}
                 movie={movie}

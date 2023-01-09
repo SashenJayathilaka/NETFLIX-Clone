@@ -88,10 +88,13 @@ function Navbar({ isSearch, setSearchTerm, searchThrem }: Props) {
         {isSearch ? (
           <Search searchThrem={searchThrem!} setSearchTerm={setSearchTerm} />
         ) : (
-          <AiOutlineSearch className="hidden sm:inline sm:w-6 sm:h-6 cursor-not-allowed" />
+          <AiOutlineSearch
+            className="hidden sm:inline sm:w-6 sm:h-6 cursor-pointer"
+            onClick={() => router.push("/")}
+          />
         )}
-        <AiFillBell className="h-6 w-6 cursor-not-allowed" />
-        <RiNetflixFill className="h-6 w-6 cursor-not-allowed text-red-800" />
+        <AiFillBell className="h-6 w-6 cursor-pointer" />
+        <RiNetflixFill className="h-6 w-6 cursor-pointer text-red-800" />
         <div onClick={() => signOut()} className="cursor-pointer">
           <img
             src={session?.user?.image!}

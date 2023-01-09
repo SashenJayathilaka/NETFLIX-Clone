@@ -9,7 +9,7 @@ type Props = {
 function Search({ setSearchTerm, searchThrem }: Props) {
   return (
     <div className="hidden md:flex">
-      <div className="bg-transparent hover:bg-gray-900 px-4 rounded-xl">
+      <div className="bg-transparent hover:bg-gray-900 px-4 rounded-xl items-center text-center">
         <input
           value={searchThrem}
           onChange={(e) => setSearchTerm(e.target.value)}

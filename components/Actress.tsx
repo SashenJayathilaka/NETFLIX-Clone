@@ -2,6 +2,7 @@ import { onSnapshot, collection } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 
 import { firestore } from "../firebase/firebase";
+import EmptyMovie from "./EmptyMovie";
 import LikeActress from "./LikeActress";
 
 const baseUrl = "https://image.tmdb.org/t/p/original";
@@ -36,13 +37,19 @@ function Actress({ session }: Props) {
             : `flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2`
         }
       >
-        {likeActress?.map((person) => (
-          <LikeActress
-            key={person.id}
-            person={person.data()}
-            baseUrl={baseUrl}
-          />
-        ))}
+        {likeActress ? (
+          <>
+            {likeActress?.map((person) => (
+              <LikeActress
+                key={person.id}
+                person={person.data()}
+                baseUrl={baseUrl}
+              />
+            ))}
+          </>
+        ) : (
+          <EmptyMovie />
+        )}
       </div>
     </div>
   );

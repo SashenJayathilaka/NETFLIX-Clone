@@ -1,16 +1,16 @@
 <div align="center">
 
-  <img src="https://user-images.githubusercontent.com/99184393/210160017-d4ded1e1-49d8-424d-b14c-a284856e730c.png" alt="logo" width="205" height="auto" />
+  <img src="https://user-images.githubusercontent.com/99184393/211183762-03b6e9b4-9fcd-4874-a0e4-20cf00537c06.gif" alt="logo" width="400" height="auto" />
 
   <h1>NETFLIX 2.0 with NEXT.JS!</h1>
 
   <p>
-NETFLIX 2.0 with NEXT.JS!(Next.js, NextAuth.js v4.17.0, Tailwind CSS, framer-motion, TMDB Api, Google Authentication, primary information about a movies)
+NETFLIX 2.0 with NEXT.JS!(Next.js, NextAuth.js v4.17.0, Tailwind CSS, framer-motion, TMDB Api, Google Authentication, primary information about a movies, You can Add Bookmark in favourite actors and movies)
   </p>
 
 <!-- Badges -->
 
-<a href="https://netflix-sclone.vercel.app" target="_blank">![](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)</a>
+<a href="https://netflix-sclone.netlify.app" target="_blank">![](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)</a>
 ![](https://img.shields.io/badge/Maintained-Yes-indigo)
 ![](https://img.shields.io/github/forks/SashenJayathilaka/NETFLIX-Clone.svg)
 ![](https://img.shields.io/github/stars/SashenJayathilaka/NETFLIX-Clone.svg)
@@ -18,7 +18,7 @@ NETFLIX 2.0 with NEXT.JS!(Next.js, NextAuth.js v4.17.0, Tailwind CSS, framer-mot
 ![](https://img.shields.io/github/last-commit/SashenJayathilaka/NETFLIX-Clone)
 
 <h4>
-    <a href="https://netflix-sclone.vercel.app">View Demo</a>
+    <a href="https://netflix-sclone.netlify.app">View Demo</a>
   <span> · </span>
     <a href="https://github.com/SashenJayathilaka/NETFLIX-Clone/blob/master/README.md">Documentation</a>
   <span> · </span>
@@ -54,10 +54,10 @@ NETFLIX 2.0 with NEXT.JS!(Next.js, NextAuth.js v4.17.0, Tailwind CSS, framer-mot
 ### :camera: Screenshots
 
 <div align="center">
-<a href="https://netflix-sclone.vercel.app" target="_blank"><img  src='./demo/ezgif-1-2a6c90cdd6.gif' alt='image'/></a>
+<a href="https://netflix-sclone.netlify.app" target="_blank"><img  src='./demo/ezgif-1-2a6c90cdd6.gif' alt='image'/></a>
 </div>
 
-## <a href="https://netflix-sclone.vercel.app" target="_blank">LIVE DEMO 💥</a>
+## <a href="https://netflix-sclone.netlify.app" target="_blank">LIVE DEMO 💥</a>
 
 ![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
 ![forthebadge](https://forthebadge.com/images/badges/for-you.svg)
