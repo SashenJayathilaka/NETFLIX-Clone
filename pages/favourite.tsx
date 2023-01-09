@@ -4,6 +4,7 @@ import { getSession } from "next-auth/react";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import Actress from "../components/Actress";
+import EmptyMovie from "../components/EmptyMovie";
 
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -43,8 +44,8 @@ function Favourite({ session }: Props) {
         />
       </Head>
       <Navbar />
-      <main className="pl-4 pb-24 lg:space-y-24">
-        <section className="md:space-y-16 pt-36 pb-36 mb-36">
+      <main className="pl-4 pb-4 lg:space-y-24">
+        <section className="md:space-y-16 pt-36 pb-4 mb-4">
           <div className="flex justify-start gap-2">
             <motion.button
               whileHover={{ scale: 1.1 }}
@@ -68,13 +69,19 @@ function Favourite({ session }: Props) {
             </motion.button>
           </div>
           {isMovie ? (
-            <Row
-              likeMovies={likeMovies}
-              isDetails={true}
-              type="movie"
-              isSearch={true}
-              isfavourite={true}
-            />
+            <>
+              {likeMovies ? (
+                <Row
+                  likeMovies={likeMovies}
+                  isDetails={true}
+                  type="movie"
+                  isSearch={true}
+                  isfavourite={true}
+                />
+              ) : (
+                <EmptyMovie />
+              )}
+            </>
           ) : (
             <Actress session={session} />
           )}

@@ -34,9 +34,8 @@ function MainPage({
 
   const fetchData = async (searchItem: string) => {
     const movieSearchdata = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&query=${searchItem}&page=1&include_adult=false`
+      `https://api.themoviedb.org/3/search/multi?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&query=${searchItem}&page=1&include_adult=false`
     ).then((res) => res.json());
-
     setSearchMovie(movieSearchdata.results);
   };
 
@@ -53,10 +52,9 @@ function MainPage({
         setSearchTerm={setSearchTerm}
         searchThrem={searchThrem}
       />
-
       {searchThrem ? (
-        <main className="pl-4 pb-24 lg:space-y-24">
-          <section className="md:space-y-16 pt-36 pb-36 mb-36">
+        <main className="pl-4 pb-4 lg:space-y-24">
+          <section className="md:space-y-16 pt-36 pb-4 mb-4">
             <Row
               movies={searchMovie}
               isDetails={true}
@@ -64,65 +62,57 @@ function MainPage({
               isSearch={true}
             />
           </section>
-          {/*           <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <Footer /> */}
         </main>
       ) : (
-        <>
-          <main className="relative pl-4 pb-24 lg:space-y-24">
-            <HomeBanner netflixOriginals={netflixOriginals} session={session} />
-            <section className="md:space-y-16">
-              <Row
-                title="Trending Now"
-                movies={trendingNow}
-                isDetails={false}
-                type="movie"
-              />
-              <Row
-                title="Top Rated"
-                movies={topRated}
-                isDetails={false}
-                type="movie"
-              />
-              <Row
-                title="Action Thrillers"
-                movies={actionMovies}
-                isDetails={false}
-                type="movie"
-              />
-              <Row
-                title="Comedies"
-                movies={comedyMovies}
-                isDetails={false}
-                type="movie"
-              />
-              <Row
-                title="Scary Movies"
-                movies={horrorMovies}
-                isDetails={false}
-                type="movie"
-              />
-              <Row
-                title="Romance Movies"
-                movies={romanceMovies}
-                isDetails={false}
-                type="movie"
-              />
-              <Row
-                title="Documentaries"
-                movies={documentaries}
-                isDetails={false}
-                type="movie"
-              />
-            </section>
-          </main>
-          <Footer />
-        </>
+        <main className="relative pl-4 pb-24 lg:space-y-24">
+          <HomeBanner netflixOriginals={netflixOriginals} session={session} />
+          <section className="md:space-y-16">
+            <Row
+              title="Trending Now"
+              movies={trendingNow}
+              isDetails={false}
+              type="movie"
+            />
+            <Row
+              title="Top Rated"
+              movies={topRated}
+              isDetails={false}
+              type="movie"
+            />
+            <Row
+              title="Action Thrillers"
+              movies={actionMovies}
+              isDetails={false}
+              type="movie"
+            />
+            <Row
+              title="Comedies"
+              movies={comedyMovies}
+              isDetails={false}
+              type="movie"
+            />
+            <Row
+              title="Scary Movies"
+              movies={horrorMovies}
+              isDetails={false}
+              type="movie"
+            />
+            <Row
+              title="Romance Movies"
+              movies={romanceMovies}
+              isDetails={false}
+              type="movie"
+            />
+            <Row
+              title="Documentaries"
+              movies={documentaries}
+              isDetails={false}
+              type="movie"
+            />
+          </section>
+        </main>
       )}
+      <Footer />
     </>
   );
 }
