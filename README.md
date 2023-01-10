@@ -114,9 +114,6 @@ NETFLIX 2.0 with NEXT.JS!(Next.js, NextAuth.js v4.17.0, Tailwind CSS, framer-mot
                                                   <td>
 <a href="#"><img src="https://user-images.githubusercontent.com/99184393/210160017-d4ded1e1-49d8-424d-b14c-a284856e730c.png" alt="" width="30" height="30" /></a>
         </td>
-                                <td>
-<a href="#"><img src="https://user-images.githubusercontent.com/99184393/210160309-c27461cc-791e-4bfd-8d0d-9ad0b1673118.png" alt="" height="20" /></a>
-        </td>
     </tr>
 </table>
 
@@ -135,13 +132,25 @@ To run this project, you will need to add the following environment variables to
 
 `NEXTAUTH_URL`
 
-`VERCEL_URL`
-
 `GOOGLE_CLIENT_ID`
 
 `NEXT_PUBLIC_SECRET`
 
+`NEXT_PUBLIC_BASE_URL`
+
 `GOOGLE_CLIENT_SECRET`
+
+`NEXT_PUBLIC_FIREBASE_APP_ID`
+
+`NEXT_PUBLIC_FIREBASE_API_KEY`
+
+`NEXT_PUBLIC_FIREBASE_PROJECT_ID`
+
+`NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN`
+
+`NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET`
+
+`NEXT_PUBLIC_FIREBASE_MESSAGING_SET`
 
 ### :gear: Installation
 
