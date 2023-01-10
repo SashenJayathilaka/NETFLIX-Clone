@@ -70,7 +70,7 @@ function Favourite({ session }: Props) {
           </div>
           {isMovie ? (
             <>
-              {likeMovies ? (
+              {likeMovies.length > 0 ? (
                 <Row
                   likeMovies={likeMovies}
                   isDetails={true}
