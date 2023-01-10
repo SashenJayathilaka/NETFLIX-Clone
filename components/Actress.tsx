@@ -30,27 +30,25 @@ function Actress({ session }: Props) {
 
   return (
     <div className="overflow-x-hidden">
-      <div
-        className={
-          likeActress.length >= 6
-            ? `grid space-x-5 space-y-8 pt-0`
-            : `flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2`
-        }
-      >
-        {likeActress ? (
-          <>
-            {likeActress?.map((person) => (
-              <LikeActress
-                key={person.id}
-                person={person.data()}
-                baseUrl={baseUrl}
-              />
-            ))}
-          </>
-        ) : (
-          <EmptyMovie />
-        )}
-      </div>
+      {likeActress.length > 0 ? (
+        <div
+          className={
+            likeActress.length >= 6
+              ? `grid space-x-5 space-y-8 pt-0`
+              : `flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2`
+          }
+        >
+          {likeActress?.map((person) => (
+            <LikeActress
+              key={person.id}
+              person={person.data()}
+              baseUrl={baseUrl}
+            />
+          ))}
+        </div>
+      ) : (
+        <EmptyMovie />
+      )}
     </div>
   );
 }
