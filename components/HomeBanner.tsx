@@ -70,7 +70,7 @@ function HomeBanner({ netflixOriginals, session }: Props) {
       <h1 className="text-2xl md:text-4xl lg:text-7xl font-bold">
         {movie?.title || movie?.name || movie?.original_name}
       </h1>
-      <p className="max-w-xs text-shadow-md text-xs md:max-w-lg md:text-lg lg:max-w-2xl">
+      <p className="max-w-xs text-shadow-md text-xs md:max-w-lg md:text-lg lg:max-w-2xl line-clamp-6">
         {movie?.overview}
       </p>
 

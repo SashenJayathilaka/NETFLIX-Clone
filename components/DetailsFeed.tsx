@@ -10,6 +10,7 @@ import MainDetails from "./MainDetails";
 import MoreDetails from "./MoreDetails";
 import Navbar from "./Navbar";
 import Row from "./Row";
+import Seasons from "./Seasons";
 import Trailer from "./Trailer";
 
 type Props = {
@@ -45,8 +46,10 @@ function DetailsFeed({ netflixOriginals }: Props) {
     fetchData(movieId, type);
   }, [movieId, type]);
 
+  console.log(movieDetails);
+
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Navbar />
       <main className="relative pl-4 pb-24 lg:space-y-24">
         <MainDetails movieDetails={movieDetails} />
@@ -55,6 +58,7 @@ function DetailsFeed({ netflixOriginals }: Props) {
         <Trailer movieTrailer={movieTrailer} movieDetails={movieDetails} />
         <BilledCast movieCast={movieCast} />
         <MoreDetails movieDetails={movieDetails} />
+        {type === "tv" && <Seasons movieDetails={movieDetails} />}
         <div className="pb-8">
           <Row
             title="More Like This"
