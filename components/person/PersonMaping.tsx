@@ -23,7 +23,7 @@ function PersonMaping({ person, baseUrl }: Props) {
 
   return (
     <motion.div
-      className="bg-transparent relative cursor-pointer transition-transform duration-200 items-center ease-out  px-2 py-2 md:hover:scale-105 rounded-md shadow-2xl"
+      className="bg-transparent relative cursor-pointer items-center px-2 py-2 rounded-md shadow-2xl"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
