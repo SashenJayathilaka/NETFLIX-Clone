@@ -46,8 +46,6 @@ function DetailsFeed({ netflixOriginals }: Props) {
     fetchData(movieId, type);
   }, [movieId, type]);
 
-  console.log(movieDetails);
-
   return (
     <div className="overflow-x-hidden">
       <Navbar />

@@ -102,6 +102,46 @@ export interface CastDataTyping {
   title: string;
 }
 
+export interface Episode {
+  air_date: string;
+  crew: any[];
+  episode_number: number;
+  guest_stars: Cast[];
+  id: number;
+  name: string;
+  overview: string;
+  production_code: string;
+  runtime: number;
+  season_number: number;
+  show_id: number;
+  still_path: number;
+  vote_average: number;
+  vote_count: number;
+}
+
+export interface SeasonDetail {
+  air_date: string;
+  name: string;
+  episodes: Episode[];
+  id: number;
+  overview: string;
+  poster_path: string;
+  season_number: number;
+  _id: string;
+}
+
+export interface MovieTrailer {
+  id: string;
+  iso_639_1: string;
+  key: string;
+  name: string;
+  official: boolean;
+  published_at: string;
+  site: string;
+  size: number;
+  type: string;
+}
+
 export interface Element {
   type:
     | "Bloopers"

@@ -31,7 +31,7 @@ function Person({ cast, baseUrl }: Props) {
         delay: 0.5,
         ease: [0, 0.71, 0.2, 1.01],
       }}
-      className="bg-gray-900 relative h-auto min-w-[180px] cursor-pointer transition-transform duration-200 ease-out md:h-[310px] md:min-w-[150px] px-2 py-2 md:hover:scale-105 rounded-md shadow-lg items-center"
+      className="bg-gray-900 relative h-auto min-w-[180px] cursor-pointer transition-transform duration-200 ease-out md:h-[310px] md:min-w-[150px] px-2 py-2 md:hover:scale-105 rounded-md shadow-lg items-center hover:bg-gray-800"
       onClick={handleNavigatePage}
     >
       {cast.profile_path ? (

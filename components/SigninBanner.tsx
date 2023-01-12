@@ -53,10 +53,10 @@ function SigninBanner({}: Props) {
           </p>
           <div className="flex flex-col md:flex-row justify-center">
             <input
-              className="h-12 md:h-14 xl:h-16 w-[70vw] sm:w-[28rem]  md:w-[28rem] lg:w-[34rem] sm:my-2"
+              className="h-12 md:h-14 xl:h-16 w-[70vw] sm:w-[28rem]  md:w-[28rem] lg:w-[34rem] sm:my-2 text-gray-900 font-medium"
               type="email"
               name="email"
-              placeholder="  Email address"
+              placeholder="Email address"
             />
             <button className="flex self-center w-32 md:w-52 items-center bg-red-600 hover:bg-[#e50914] pl-4 md:pl-7 h-10 md:h-14 xl:h-16 m-2 md:m-0 md:text-2xl rounded">
               Get Started

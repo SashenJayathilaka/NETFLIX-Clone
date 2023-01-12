@@ -1,4 +1,4 @@
-import { onSnapshot, collection } from "firebase/firestore";
+import { onSnapshot, collection, orderBy, query } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 
 import { firestore } from "../firebase/firebase";
@@ -12,18 +12,21 @@ type Props = {
 };
 
 function Actress({ session }: Props) {
-  const [likeActress, setLikeAclikeActress] = useState<any[]>([]);
+  const [likeActress, setLikeAlikeActress] = useState<any[]>([]);
 
   useEffect(
     () =>
       onSnapshot(
-        collection(
-          firestore,
-          "netflixUsers",
-          session?.user?.uid,
-          "likeActress"
+        query(
+          collection(
+            firestore,
+            "netflixUsers",
+            session?.user?.uid,
+            "likeActress"
+          ),
+          orderBy("popularity", "desc")
         ),
-        (snapshot) => setLikeAclikeActress(snapshot.docs)
+        (snapshot) => setLikeAlikeActress(snapshot.docs)
       ),
     [firestore, session?.user?.uid]
   );

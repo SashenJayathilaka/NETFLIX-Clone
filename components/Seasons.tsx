@@ -16,7 +16,12 @@ function Seasons({ movieDetails }: Props) {
 
       <div className="flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2 overflow-y-hidden">
         {movieDetails?.seasons?.map((season) => (
-          <Seasson key={season.id} season={season} baseUrl={baseUrl} />
+          <Seasson
+            key={season.id}
+            season={season}
+            baseUrl={baseUrl}
+            seasonId={movieDetails.id}
+          />
         ))}
       </div>
     </div>
