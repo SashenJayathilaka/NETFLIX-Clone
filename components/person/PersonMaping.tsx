@@ -23,13 +23,17 @@ function PersonMaping({ person, baseUrl }: Props) {
 
   return (
     <motion.div
-      className="bg-transparent relative cursor-pointer items-center px-2 py-2 rounded-md shadow-2xl"
+      className="bg-transparent relative cursor-pointer items-center px-2 py-2 rounded-md shadow-2xl hover:bg-gray-800"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       onClick={handleNavigatePage}
     >
-      <img src={`${baseUrl}${person.profile_path}`} alt="" className="w-56" />
+      <img
+        src={`${baseUrl}${person.profile_path}`}
+        alt=""
+        className="w-56 m-auto"
+      />
       <h1 className="text-gray-300 font-bold text-xl text-center py-2 line-clamp-3">
         {person.name}
       </h1>
