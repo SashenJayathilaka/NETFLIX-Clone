@@ -13,7 +13,7 @@ function LikeActress({ person, baseUrl }: Props) {
 
   const handleNavigatePage = () => {
     router.push({
-      pathname: `https://netflix-sclone.netlify.app/cast/${person.id}`,
+      pathname: `${process.env.NEXT_PUBLIC_AUTH_URL}/cast/${person.id}`,
       query: {
         castId: person.id.toString(),
       },

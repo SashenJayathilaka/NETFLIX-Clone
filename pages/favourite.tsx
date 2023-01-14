@@ -1,4 +1,4 @@
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { motion } from "framer-motion";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
@@ -22,7 +22,15 @@ function Favourite({ session }: Props) {
   useEffect(
     () =>
       onSnapshot(
-        collection(firestore, "netflixUsers", session?.user?.uid, "likeMovie"),
+        query(
+          collection(
+            firestore,
+            "netflixUsers",
+            session?.user?.uid,
+            "likeMovie"
+          ),
+          orderBy("vote_average", "desc")
+        ),
         (snapshot) => setLikeMovies(snapshot.docs)
       ),
     [firestore, session?.user?.uid]

@@ -22,7 +22,7 @@ function DetailsFeed({ netflixOriginals }: Props) {
   const { movieId, type } = router.query;
   const [movieTrailer, setMovieTrailer] = useState([]);
   const [movieCast, setMovieCast] = useState([]);
-  const [movieDetails, setMovieDetails] = useState();
+  const [movieDetails, setMovieDetails] = useState<any>();
 
   const fetchData = async (id: any, type: any) => {
     const movieVideo = await fetch(
@@ -52,7 +52,11 @@ function DetailsFeed({ netflixOriginals }: Props) {
       <main className="relative pl-4 pb-24 lg:space-y-24">
         <MainDetails movieDetails={movieDetails} />
         <Companies movieDetails={movieDetails} />
-        {movieDetails && <AddBookmark movieDetails={movieDetails} />}
+        {movieDetails?.title ||
+          movieDetails?.name ||
+          (movieDetails?.original_name && (
+            <AddBookmark movieDetails={movieDetails} />
+          ))}
         <Trailer movieTrailer={movieTrailer} movieDetails={movieDetails} />
         <BilledCast movieCast={movieCast} />
         <MoreDetails movieDetails={movieDetails} />
