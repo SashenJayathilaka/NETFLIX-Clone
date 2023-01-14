@@ -73,7 +73,7 @@ function Row({
             ref={rowRef}
             className={
               likeMovies?.length >= 4
-                ? `grid overflow-x-hidden gap-y-6 gap-x-[30px]`
+                ? `grid overflow-x-hidden gap-y-6 gap-x-24`
                 : `flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2`
             }
           >
