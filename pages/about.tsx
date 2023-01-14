@@ -1,15 +1,14 @@
 import { motion } from "framer-motion";
-import { getSession } from "next-auth/react";
 import Head from "next/head";
-import React from "react";
 
-import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
-import PersonFeed from "../../components/person/PersonFeed";
+import React from "react";
+import AboutFeed from "../components/AboutFeed";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 type Props = {};
 
-function CastPage({}: Props) {
+function AboutPage({}: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -26,22 +25,10 @@ function CastPage({}: Props) {
         />
       </Head>
       <Navbar />
-      <div className="bg-gradient-to-r from-gray-900">
-        <PersonFeed />
-        <Footer />
-      </div>
+      <AboutFeed />
+      <Footer />
     </motion.div>
   );
 }
 
-export default CastPage;
-
-export const getServerSideProps = async (context: any) => {
-  const session = await getSession(context);
-
-  return {
-    props: {
-      session: session,
-    },
-  };
-};
+export default AboutPage;

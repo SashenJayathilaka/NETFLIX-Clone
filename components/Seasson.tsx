@@ -15,7 +15,7 @@ function Seasson({ season, baseUrl, seasonId }: Props) {
 
   const handleNavigatePage = () => {
     router.push({
-      pathname: `https://netflix-sclone.netlify.app/season/${season.id}`,
+      pathname: `${process.env.NEXT_PUBLIC_AUTH_URL}/season/${season.id}`,
       query: {
         seasonId: seasonId.toString(),
         seasonNumber: season.season_number.toString(),

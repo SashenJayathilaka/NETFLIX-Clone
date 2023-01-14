@@ -58,7 +58,7 @@ function MainDetails({ movieDetails }: Props) {
           <p className="text-sm font-semibold py-6">
             Release Date: {movieDetails.release_date}
           </p>
-          <p className="max-w-xs text-shadow-md text-xs md:max-w-lg md:text-lg lg:max-w-2xl line-clamp-6">
+          <p className="max-w-xs text-shadow-md text-xs md:max-w-xl md:text-lg lg:max-w-2xl line-clamp-5">
             {movieDetails?.overview}
           </p>
         </motion.div>

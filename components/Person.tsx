@@ -15,7 +15,7 @@ function Person({ cast, baseUrl }: Props) {
 
   const handleNavigatePage = () => {
     router.push({
-      pathname: `https://netflix-sclone.netlify.app/cast/${cast.id}`,
+      pathname: `${process.env.NEXT_PUBLIC_AUTH_URL}/cast/${cast.id}`,
       query: {
         castId: cast.id.toString(),
       },

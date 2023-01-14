@@ -45,7 +45,7 @@ function Row({
     <div
       className={
         isfavourite || isSearch
-          ? `h-auto space-y-0.5 md:space-y-2 px-4`
+          ? `h-auto space-y-0.5 md:space-y-2 px-1`
           : `h-40 space-y-0.5 md:space-y-2 px-4`
       }
     >
@@ -73,7 +73,7 @@ function Row({
             ref={rowRef}
             className={
               likeMovies?.length >= 4
-                ? `grid overflow-x-hidden gap-y-6 gap-x-24`
+                ? `grid overflow-x-hidden gap-y-6 gap-x-[30px]`
                 : `flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2`
             }
           >
@@ -92,7 +92,7 @@ function Row({
             ref={rowRef}
             className={
               isSearch && movies!.length >= 4
-                ? `grid  overflow-x-hidden gap-y-6 gap-x-24`
+                ? `grid overflow-x-hidden gap-y-6 gap-x-24`
                 : `flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2`
             }
           >

@@ -112,7 +112,9 @@ function PersonBanner({ castPerson }: Props) {
           )}
         </div>
       </div>
-      {castPerson.id && <PersonBookMark castPerson={castPerson} />}
+      {castPerson.id && castPerson.name && (
+        <PersonBookMark castPerson={castPerson} />
+      )}
     </div>
   );
 }
