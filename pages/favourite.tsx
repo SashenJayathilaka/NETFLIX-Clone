@@ -1,40 +1,18 @@
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { motion } from "framer-motion";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import Actress from "../components/Actress";
-import EmptyMovie from "../components/EmptyMovie";
+import FavoriteFeed from "../components/FavoriteFeed";
 
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import Row from "../components/Row";
-import { firestore } from "../firebase/firebase";
+import SignIn from "../components/SignIn";
 
 type Props = {
   session: any;
 };
 
-function Favourite({ session }: Props) {
-  const [likeMovies, setLikeMovies] = useState<any[]>([]);
-  const [isMovie, setIsMovie] = useState<boolean>(true);
-
-  useEffect(
-    () =>
-      onSnapshot(
-        query(
-          collection(
-            firestore,
-            "netflixUsers",
-            session?.user?.uid,
-            "likeMovie"
-          ),
-          orderBy("vote_average", "desc")
-        ),
-        (snapshot) => setLikeMovies(snapshot.docs)
-      ),
-    [firestore, session?.user?.uid]
-  );
+function Favorite({ session }: Props) {
+  if (!session) return <SignIn />;
 
   return (
     <motion.div
@@ -52,55 +30,13 @@ function Favourite({ session }: Props) {
         />
       </Head>
       <Navbar />
-      <main className="pl-4 pb-4 lg:space-y-24">
-        <section className="md:space-y-16 pt-36 pb-4 mb-4">
-          <div className="flex justify-start gap-2">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className={`text-xl font-semibold px-2.5 py-2.5 bg-transparent shadow-md hover:bg-gray-900 rounded-md ${
-                isMovie && "bg-gray-900 shadow-2xl"
-              }`}
-              onClick={() => setIsMovie(true)}
-            >
-              Movie
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className={`text-xl font-semibold px-2.5 py-2.5 bg-transparent shadow-md hover:bg-gray-900 rounded-md ${
-                !isMovie && "bg-gray-900 shadow-2xl"
-              }`}
-              onClick={() => setIsMovie(false)}
-            >
-              Actress
-            </motion.button>
-          </div>
-          {isMovie ? (
-            <>
-              {likeMovies.length > 0 ? (
-                <Row
-                  likeMovies={likeMovies}
-                  isDetails={true}
-                  type="movie"
-                  isSearch={true}
-                  isfavourite={true}
-                />
-              ) : (
-                <EmptyMovie />
-              )}
-            </>
-          ) : (
-            <Actress session={session} />
-          )}
-        </section>
-      </main>
+      <FavoriteFeed session={session} />
       <Footer />
     </motion.div>
   );
 }
 
-export default Favourite;
+export default Favorite;
 
 export const getServerSideProps = async (context: any) => {
   const session = await getSession(context);

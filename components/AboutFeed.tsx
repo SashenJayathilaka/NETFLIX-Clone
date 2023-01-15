@@ -27,7 +27,7 @@ function AboutFeed({}: Props) {
           username: session?.user?.name,
           caption: feedback,
           profileImage: session?.user?.image,
-          company: session?.user?.email,
+          email: session?.user?.email,
           timestamp: serverTimestamp() as Timestamp,
         });
 
@@ -42,7 +42,7 @@ function AboutFeed({}: Props) {
     <main className="relative pl-4 pb-24 lg:space-y-24 h-auto">
       <div className="pt-36 pb-18">
         <p className="text-3xl font-semibold px-20">{`Information's`}</p>
-        <div className="inline-block md:flex justify-start px-8 py-8 gap-8 overflow-x-hidden ">
+        <div className="inline-block md:flex justify-between px-16 py-8 overflow-x-hidden ">
           <video
             autoPlay
             playsInline
@@ -51,7 +51,7 @@ function AboutFeed({}: Props) {
             className="w-[280px] md:w-[465px] sm:w-[450px] lg:w-[700px] z-0 items-center"
           >
             <source
-              src="https://drive.google.com/uc?export=download&id=1i_6u8bQQGXc5yHgFTgz5xeobJcHQUmR_"
+              src="https://drive.google.com/uc?export=download&id=1irloDrD37mi3mKNWaYtkeG9SdeE6X2Rh"
               type="video/mp4"
             />
           </video>

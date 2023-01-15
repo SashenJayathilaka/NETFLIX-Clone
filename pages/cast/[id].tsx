@@ -6,10 +6,15 @@ import React from "react";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import PersonFeed from "../../components/person/PersonFeed";
+import SignIn from "../../components/SignIn";
 
-type Props = {};
+type Props = {
+  session: any;
+};
 
-function CastPage({}: Props) {
+function CastPage({ session }: Props) {
+  if (!session) return <SignIn />;
+
   return (
     <motion.div
       initial={{ opacity: 0 }}

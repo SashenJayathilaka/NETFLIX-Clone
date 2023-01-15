@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { getSession } from "next-auth/react";
 import Head from "next/head";
 import React from "react";
 
@@ -6,6 +7,7 @@ import Footer from "../components/Footer";
 import HomeBanner from "../components/HomeBanner";
 import Navbar from "../components/Navbar";
 import Row from "../components/Row";
+import SignIn from "../components/SignIn";
 import { Movie } from "../typings";
 import tvRequests from "../utils/tvSeasonRequest";
 
@@ -13,9 +15,12 @@ type Props = {
   topRated: Movie[];
   onTheAirTv: Movie[];
   popularTv: Movie[];
+  session: any;
 };
 
-function TvSeasons({ topRated, onTheAirTv, popularTv }: Props) {
+function TvSeasons({ topRated, onTheAirTv, popularTv, session }: Props) {
+  if (!session) return <SignIn />;
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -33,7 +38,7 @@ function TvSeasons({ topRated, onTheAirTv, popularTv }: Props) {
       </Head>
       <Navbar />
       <main className="relative pl-4 pb-24 lg:space-y-24">
-        <HomeBanner netflixOriginals={topRated} />
+        <HomeBanner netflixOriginals={topRated} isTv={true} />
         <section className="md:space-y-16">
           <Row
             title="Trending Now"
@@ -74,7 +79,9 @@ function TvSeasons({ topRated, onTheAirTv, popularTv }: Props) {
 
 export default TvSeasons;
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context: any) => {
+  const session = await getSession(context);
+
   const [topRated, onTheAirTv, popularTv] = await Promise.all([
     fetch(tvRequests.fetchTopRated).then((res) => res.json()),
     fetch(tvRequests.fetchOnTheAir).then((res) => res.json()),
@@ -86,6 +93,7 @@ export const getServerSideProps = async () => {
       topRated: topRated.results,
       onTheAirTv: onTheAirTv.results,
       popularTv: popularTv.results,
+      session: session,
     },
   };
 };

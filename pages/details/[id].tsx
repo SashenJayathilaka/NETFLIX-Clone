@@ -1,15 +1,20 @@
 import { motion } from "framer-motion";
+import { getSession } from "next-auth/react";
 import Head from "next/head";
 
 import DetailsFeed from "../../components/DetailsFeed";
+import SignIn from "../../components/SignIn";
 import { Movie } from "../../typings";
 import requests from "../../utils/requests";
 
 type Props = {
   netflixOriginals: Movie[];
+  session: any;
 };
 
-function Details({ netflixOriginals }: Props) {
+function Details({ netflixOriginals, session }: Props) {
+  if (!session) return <SignIn />;
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -32,7 +37,8 @@ function Details({ netflixOriginals }: Props) {
 
 export default Details;
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context: any) => {
+  const session = await getSession(context);
   const [netflixOriginals] = await Promise.all([
     fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
   ]);
@@ -40,6 +46,7 @@ export const getServerSideProps = async () => {
   return {
     props: {
       netflixOriginals: netflixOriginals.results,
+      session: session,
     },
   };
 };

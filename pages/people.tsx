@@ -1,18 +1,23 @@
 import { motion } from "framer-motion";
+import { getSession } from "next-auth/react";
 import Head from "next/head";
 import React from "react";
 
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import PeoplePopular from "../components/person/PeoplePopular";
+import SignIn from "../components/SignIn";
 import { PopularTyping } from "../typings";
 import peopleRequests from "../utils/personRequest";
 
 type Props = {
   popular: PopularTyping[];
+  session: any;
 };
 
-function People({ popular }: Props) {
+function People({ popular, session }: Props) {
+  if (!session) return <SignIn />;
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -41,7 +46,9 @@ function People({ popular }: Props) {
 
 export default People;
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context: any) => {
+  const session = await getSession(context);
+
   const [popular] = await Promise.all([
     fetch(peopleRequests.fetchPopular).then((res) => res.json()),
   ]);
@@ -49,6 +56,7 @@ export const getServerSideProps = async () => {
   return {
     props: {
       popular: popular.results,
+      session: session,
     },
   };
 };
