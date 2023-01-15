@@ -1,12 +1,18 @@
 import { motion } from "framer-motion";
+import { getSession } from "next-auth/react";
 import Head from "next/head";
 import React from "react";
 
 import SeasonFeed from "../../components/SeasonPage/SeasonFeed";
+import SignIn from "../../components/SignIn";
 
-type Props = {};
+type Props = {
+  session: any;
+};
 
-function SeasonPage({}: Props) {
+function SeasonPage({ session }: Props) {
+  if (!session) return <SignIn />;
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -28,3 +34,13 @@ function SeasonPage({}: Props) {
 }
 
 export default SeasonPage;
+
+export const getServerSideProps = async (context: any) => {
+  const session = await getSession(context);
+
+  return {
+    props: {
+      session: session,
+    },
+  };
+};

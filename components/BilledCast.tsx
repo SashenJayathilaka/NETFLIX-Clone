@@ -42,7 +42,7 @@ function BilledCast({ movieCast }: Props) {
           onClick={() => handleClick("left")}
         />
         <div
-          className="flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll md:space-x-1.0 md:p-2"
+          className="flex items-center scrollbar-hide space-x-0.5 overflow-x-scroll overflow-y-hidden md:space-x-1.0 md:p-2"
           ref={rowRef}
         >
           {movieCast?.cast ? (

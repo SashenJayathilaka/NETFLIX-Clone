@@ -31,7 +31,7 @@ function Person({ cast, baseUrl }: Props) {
         delay: 0.5,
         ease: [0, 0.71, 0.2, 1.01],
       }}
-      className="bg-gray-900 relative h-auto min-w-[180px] cursor-pointer transition-transform duration-200 ease-out md:h-[310px] md:min-w-[150px] px-2 py-2 md:hover:scale-105 rounded-md shadow-lg items-center hover:bg-gray-800"
+      className="bg-gray-900 relative h-auto min-w-[180px] cursor-pointer transition-transform duration-200 ease-out md:h-[320px] md:min-w-[150px] px-2 py-2 md:hover:scale-105 rounded-md shadow-lg items-center hover:bg-gray-800"
       onClick={handleNavigatePage}
     >
       {cast.profile_path ? (
@@ -44,10 +44,10 @@ function Person({ cast, baseUrl }: Props) {
         <NoCast />
       )}
 
-      <h1 className="text-gray-300 font-bold">
+      <h1 className="text-gray-300 font-bold text-lg">
         {cast.name || cast.original_name}
       </h1>
-      <p className="text-gray-300">{cast.character}</p>
+      <p className="text-gray-300 text-sm line-clamp-3">{cast.character}</p>
     </motion.div>
   );
 }

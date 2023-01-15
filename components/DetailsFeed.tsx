@@ -52,7 +52,7 @@ function DetailsFeed({ netflixOriginals }: Props) {
       <main className="relative pl-4 pb-24 lg:space-y-24">
         <MainDetails movieDetails={movieDetails} />
         <Companies movieDetails={movieDetails} />
-        {movieDetails && <AddBookmark movieDetails={movieDetails} />}
+        {movieDetails?.id && <AddBookmark movieDetails={movieDetails} />}
         <Trailer movieTrailer={movieTrailer} movieDetails={movieDetails} />
         <BilledCast movieCast={movieCast} />
         <MoreDetails movieDetails={movieDetails} />

@@ -13,9 +13,10 @@ const baseUrl = "https://image.tmdb.org/t/p/original";
 type Props = {
   netflixOriginals: Movie[];
   session?: any;
+  isTv?: boolean;
 };
 
-function HomeBanner({ netflixOriginals, session }: Props) {
+function HomeBanner({ netflixOriginals, session, isTv }: Props) {
   const router = useRouter();
   const [movie, setMovie] = useState<Movie | null>(null);
   const [userCreates, setUserCreate] = useState<boolean>(false);
@@ -63,7 +64,7 @@ function HomeBanner({ netflixOriginals, session }: Props) {
         pathname: `details/${movie.id}`,
         query: {
           movieId: movie.id.toString(),
-          type: "movie",
+          type: isTv ? "tv" : "movie",
         },
       });
     } else return;

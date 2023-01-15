@@ -65,7 +65,11 @@ function MainPage({
         </main>
       ) : (
         <main className="relative pl-4 pb-24 lg:space-y-24">
-          <HomeBanner netflixOriginals={netflixOriginals} session={session} />
+          <HomeBanner
+            netflixOriginals={netflixOriginals}
+            session={session}
+            isTv={false}
+          />
           <section className="md:space-y-16">
             <Row
               title="Trending Now"
